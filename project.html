@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>TheBoyz</title>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'></script>
+    <style>
+      #div1{
+       position: absolute;
+       left: 50%;
+       top: 50%;
+       margin-left: -600px;
+       margin-top: -200px;
+       z-index: 10;
+      }
+      #page{
+       position: absolute;
+       left: 50%;
+       top: 50%;
+       margin-left: -600px;
+       margin-top: -200px;
+       z-index: 20;
+       display: none;
+      }
+      #but{
+       position: absolute;
+       left: 48%;
+       top: 10%;
+       z-index: 11;
+      }
+      #image1{
+       position: absolute;
+       left: 50%;
+       top: 13%;
+       margin-left: -600px;
+       z-index: 11;
+      }
+      #image2{
+       position: absolute;
+       left: 50%;
+       top: 13%;
+       margin-left: -530px;
+       z-index: 11;
+      }
+      #image3{
+       position: absolute;
+       left: 50%;
+       top: 13%;
+       margin-left: -460px;
+       z-index: 11;
+      }
+      #image4{
+       position: absolute;
+       left: 50%;
+       top: 13%;
+       margin-left: -390px;
+       z-index: 11;
+      }
+      #image5{
+       position: absolute;
+       left: 50%;
+       top: 13%;
+       margin-left: -320px;
+       z-index: 11;
+      }
+      #personButton{
+       position: absolute;
+       left: 55%;
+       top: 9%;
+       margin-left: -320px;
+       z-index: 11;
+      }
+      #intro{
+        position: absolute;
+        right: 3%;
+        z-index: 2;
+        display: none;
+      }
+      #buttonn{
+       position: absolute;
+       left: 56%;
+       top: 10%;
+       z-index: 11;
+      }
+      #closeBtn{
+       position: absolute;
+       right: 29%;
+       top: 10%;
+       z-index: 11;
+      }
+      #click{
+        position: absolute;
+        left: 2%;
+        top: 3%;
+        z-index: 100;
+      }
+      #close{
+        position: absolute;
+        left: 10%;
+        top: 3%;
+        z-index: 100;
+      }
+    </style>
+    <script type="text/javascript">
+    var i=1;
+    var interval = null;
+    var count = 0;
+      function setSpan(){
+        interval = setInterval("doRotate()", 1000);
+      }
+      function doRotate(){
+        if(i>=5)
+          i=1;
+        else
+          i++;
+        var Image=i+".jpg";
+        img.src=Image;
+      }
+      function stopRotate(){
+        count++;
+        if(count%2==1)
+          clearInterval(interval);
+        else {
+          setSpan();
+        }
+      }
+      function stopImage(i){
+        var Image = i+".jpg";
+        img.src=Image;
+      }
+    </script>
+  </head>
+  <body onload="setSpan()" background="background.jpg">
+    <div id='page'>
+      <img src="etc/page.png" width='900' height='600'>
+    </div>
+    <div id='div1'>
+      <img src="1.jpg" id="img" onclick="stopRotate()" width="900" height='600'>
+    </div>
+    <div id='but' onclick="stopRotate()">
+      <img src="etc/button.png" width='100' height='50'>
+    </div>
+    <div id='image1' onclick='stopImage(1)'>
+      <img src="1.jpg" width='50' height='20'>
+    </div>
+    <div id='image2' onclick='stopImage(2)'>
+      <img src="2.jpg" width='50' height='20'>
+    </div>
+    <div id='image3' onclick='stopImage(3)'>
+      <img src="3.jpg" width='50' height='20'>
+    </div>
+    <div id='image4' onclick='stopImage(4)'>
+      <img src="4.jpg" width='50' height='20'>
+    </div>
+    <div id='image5' onclick='stopImage(5)'>
+      <img src="5.jpg" width='50' height='20'>
+    </div>
+    <div id='personButton'>
+      <a href="https://www.youtube.com/watch?v=3Ny1YaDatXE"><img src="etc/yip.png" width='50' height='50'></a>
+      <a href="https://www.youtube.com/watch?v=iX-T58_YOpk"><img src="etc/duvk.png" width='50' height='50'></a>
+      <a href="https://www.youtube.com/watch?v=X_kGYhk0P0c"><img src="etc/young.png" width='50' height='50'></a>
+      <a href="https://www.youtube.com/watch?v=8n6pRkpVsyU"><img src="etc/sang.png" width='50' height='50'></a>
+    </div>
+    <div id='intro'>
+      <img src="etc/profile.png">
+    </div>
+    <div id='buttonn'>
+      <img src="etc/show.png" width='100' height='50'>
+    </div>
+    <div id='closeBtn'>
+      <img src="etc/hide.png" width='100' height='50'>
+    </div>
+    <div id='click'>
+      <img src="etc/click.png">
+    </div>
+    <div id='close'>
+      <img src="etc/close.png">
+    </div>
+  </body>
+<script type="text/javascript">
+  $("#buttonn").on("click",function(){
+    $("#intro").show("slow");
+  });
+  $("#closeBtn").on("click", function(){
+        $("#intro").hide("slow");
+      });
+  $("#click").on("click",function(){
+        $("#page").show("slow");
+      });
+  $("#close").on("click", function(){
+            $("#page").hide("slow");
+          });
+</script>
+</html>
